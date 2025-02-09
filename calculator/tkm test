@@ -1,0 +1,10 @@
+import tkmacosx as tkm
+import tkinter as tk
+
+def test_button():
+    root = tk.Tk()
+    btn = tkm.Button(root, text="Test Button", bg="orange")
+    btn.pack()
+    root.mainloop()
+
+test_button()

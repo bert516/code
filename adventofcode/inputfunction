@@ -1,0 +1,45 @@
+import requests
+
+# Replace 'your_session_token' with the actual session token from your browser.
+session_token = "53616c7465645f5f8e803409939f7302e448a3eee4dbb13bef7eca8fb7eaaa7a1cc4c7576b1e1708325a9c3f42cabe94fcff28a09eda53e4efa39086c932318b"
+day = 2  # Change to the day of the puzzle
+year = 2024  # Change to the year of the puzzle
+
+url = f"https://adventofcode.com/{year}/day/{day}/input"
+headers = {"Cookie": f"session={session_token}"}
+
+response = requests.get(url, headers=headers)
+if response.status_code == 200:
+    puzzle_input = response.text
+else:
+    print("Failed to fetch input:", response.status_code)
+
+def convert(response):
+    data = response.text
+    list1 = []
+    list2 = []
+
+    for line in data.strip().split("\n"):
+        num1, num2 = map(int, line.split())
+        list1.append(num1)
+        list2.append(num2)
+    return list1, list2
+
+def main():
+    result = 0
+    for line in puzzle_input.strip().split("\n"):
+        invalid = False
+        report = list(map(int, line.split()))
+        removed = False
+        for i in range(len(report)-1): 
+            diff = abs(report[i] - report[i+1])
+            if diff > 3 or diff < 1:
+                if not removed:
+                    removed = True
+                else:
+                    invalid = True
+        if not invalid:
+            result += 1
+    return result
+print(main())
+

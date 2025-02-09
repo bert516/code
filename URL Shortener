@@ -1,0 +1,12 @@
+import tkinter as tk
+
+class GUI():
+    def main():
+        root = tk.Tk()
+        root.title("URL Shortener")
+        root.geometry("500x500")
+        original = tk.Text(root, height= 1, width= 10, font= ("Arial", 18))
+        original.pack()
+        root.mainloop()
+    main()
+GUI()
