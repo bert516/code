@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>DOM Projects</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      .css-subscribe-button {
+        border: none;
+        background-color: black;
+        color: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-bottom: 30px; 
+      }
+
+      .is-subscribed {
+        background-color: rgb(240,240,240);
+        color: black;
+      }
+
+      .cost-input {
+        font-size: 15px;
+        padding: 10px;
+      }
+
+      .calculate-button {
+        background-color: green;
+        color: white;
+        border: none;
+        font-size: 15px;
+        padding: 12px 15px;
+        cursor: pointer; 
+      }
+
+      .js-error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <button class='js-subscribe-button css-subscribe-button' onclick="
+      subscribe();">
+      Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator
+<br><br>
+Orders under $40 = +$10 shipping.
+<br><br>
+Order over $40 = FREE shipping.
+    </p>
+    <input class="cost-input" placeholder="Cost of order" onkeydown="
+    handleCostKeyDown()
+    ">
+    <button class="calculate-button" onclick="calculate()">Calculate</button>
+    <p class="js-result"></p>
+    <p class="js-error"></p>
+
+    <script>
+      String(456);
+      console.log("45" - "5");
+      console.log("36" + 5);
+
+      window.document;
+      window.console.log("Fortnite");
+
+      function handleCostKeyDown() {
+        event.key === 'Enter' ? calculate() : void 0 ;
+      }
+      function calculate() {
+        const inputValue = document.querySelector("input").value
+        if (inputValue < 0) {
+          document.querySelector(".js-error").innerHTML = "Error: cost cannot be less than $0";
+          return
+        }
+        inputValue > 40 ? document.querySelector(".js-result").innerHTML = `$${inputValue}` : document.querySelector(".js-result").innerHTML = `$${(Number(inputValue)*100 + 1000)/100}`
+      }
+      subscribed = false
+      function subscribe() {
+        const buttonElement = document.querySelector('.js-subscribe-button');
+        subscribed ? (() => {buttonElement.innerHTML = 'Subscribe'; subscribed = false; buttonElement.classList.remove('is-subscribed');})(): (() => {buttonElement.innerHTML = 'Subscribed'; subscribed = true; buttonElement.classList.add('is-subscribed');})();
+
+      }
+    </script>
+  </body> 
+</html>
