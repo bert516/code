@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Coinflip Game</title>
+  </head>
+  <body>
+    <p>Heads or Tails?</p>
+    <button onclick="playGame('Heads')">Heads</button>
+    <button onclick="playGame('Tails')">Tails</button>
+    <script>
+      function playGame(choice) {
+        const score = JSON.parse(localStorage.getItem("score")) || {wins: 0, losses: 0}
+        const random = Math.random();
+        const possibilities = ["Heads", "Tails"];
+        const result = possibilities[Math.floor(random * 2)];
+        
+        choice === result ? (() => {
+          score.wins++;
+          alert(`You Win. 
+          Wins: ${score.wins}, Losses: ${score.losses}`); })() 
+        : (() => {
+          score.losses++; 
+          alert(`You Lose. 
+          Wins: ${score.wins}, Losses: ${score.losses}`)})();
+        localStorage.setItem("score", JSON.stringify(score));
+
+      }
+    </script>
+  </body> 
+</html>
