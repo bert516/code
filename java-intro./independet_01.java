@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class independet_01 {
+public class Independet_01 {
   public static void main(String[] args) {
     /* Anhalteweg Rechner:
     System.out.println("Geschwindigkeit: ");

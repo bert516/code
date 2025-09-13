@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class independet_02 {
+public class Independet_02 {
   public static void main(String[] args) {
     /* Notendurchschnitt:
     System.out.println("Enter grades (0 to enter)");
